@@ -1,1 +1,0 @@
-mariaDBPasswd = 'maria123'
