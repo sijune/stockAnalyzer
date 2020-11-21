@@ -3,13 +3,14 @@ import pandas as pd
 from datetime import datetime
 from datetime import timedelta
 import re
+import passwdDB
 
 class MarketDB:
     # 해당 클래스에서는 codes변수와 get_daily_price 메소드를 사용한다.
 
     def __init__(self):
         # DB연결 및 종목코드 딕셔너리 생성
-        self.conn = pymysql.connect(host='localhost', user='root', password='maria123', db='INVESTAR', charset='utf8')
+        self.conn = pymysql.connect(host='localhost', user='root', password=passwdDB.DBPasswd, db='INVESTAR', charset='utf8')
         self.codes={}
         self.get_comp_info()
 

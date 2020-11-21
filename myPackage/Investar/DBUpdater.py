@@ -4,13 +4,13 @@ from urllib.request import urlopen
 from threading import Timer
 import pandas as pd
 from datetime import datetime
-import passwdMaria
+import passwdDB
 
 class DBUpdater:
     def __init__(self):
         # 1. 마리아 db연결 
         # 2. 종목코드 딕셔너리 생성
-        self.conn = pymysql.connect(host='localhost', db='INVESTAR', user='root', passwd=passwdMaria.mariaDBPasswd, charset='utf8') #회사명이 한글일 수 있으므로 인코딩방식 설정
+        self.conn = pymysql.connect(host='localhost', db='INVESTAR', user='root', passwd=passwdDB.DBPasswd, charset='utf8') #회사명이 한글일 수 있으므로 인코딩방식 설정
 
         with self.conn.cursor() as curs:
             sql = """

@@ -1,3 +1,4 @@
-myPackage/Investar/passwdMaria.py
-prepareStockPriceDB/passwdMaria.py
+myPackage/Investar/passwdDB.py
+prepareStockPriceDB/passwdDB.py
+myPackage/passwdDB.py
 myvenv
