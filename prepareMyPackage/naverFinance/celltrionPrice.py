@@ -5,7 +5,7 @@ from matplotlib import pyplot as plt
 import mplfinance as mpf
 
 # 종목코드 가져오기
-krx_list = pd.read_html('/Users/sijune/Desktop/project/stockAnalyzer/naverFinance/상장법인목록.xlsx')
+krx_list = pd.read_html('/prepareMyPackage/naverFinance/상장법인목록.xlsx')
 df = pd.read_html('http://kind.krx.co.kr/corpgeneral/corpList.do?method=download&searchType=13')[0]
 
 df['종목코드'] = df['종목코드'].map('{:06d}'.format)
