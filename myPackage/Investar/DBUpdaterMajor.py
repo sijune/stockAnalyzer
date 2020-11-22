@@ -119,7 +119,7 @@ class DBUpdater:
         # 위 두개 메서드를 이어준다.
         for idx, code in enumerate(self.codes):
             
-            if code == '000660' or code == '005380' or code == '005930' or code == '035420':
+            if code == '000660' or code == '005380' or code == '005930' or code == '035420' or code == '036570':
                 df = self.read_naver(code, self.codes[code], pages_to_fetch)
                 if df is None:
                     continue
@@ -127,16 +127,17 @@ class DBUpdater:
     def execute_daily(self):
         # 실행 즉시 or 매일 오후 5시에 테이블 업데이트
         self.update_comp_info()
-        try:
-            with open('config.json', 'r') as in_file: # 한 페이지만 불러온다.
-                config = json.load(in_file)
-                pages_to_fetch = config['pages_to_fetch']
-        except FileNotFoundError:
-            with open('config.json', 'w') as out_file: # 파일이 없으면 첫 세팅을 100으로 한다.
-                pages_to_fetch = 200
-                config = {'pages_to_fetch':1}
-                json.dump(config, out_file)
-        self.update_daily_price(pages_to_fetch)
+        # try:
+        #     with open('config.json', 'r') as in_file: # 한 페이지만 불러온다.
+        #         config = json.load(in_file)
+        #         pages_to_fetch = config['pages_to_fetch']
+        # except FileNotFoundError:
+        #     with open('config.json', 'w') as out_file: # 파일이 없으면 첫 세팅을 100으로 한다.
+        #         pages_to_fetch = 200
+        #         config = {'pages_to_fetch':1}
+        #         json.dump(config, out_file)
+        # self.update_daily_price(pages_to_fetch)
+        self.update_daily_price(200)
 
         """
         # 매일 오후 5시 업데이트
