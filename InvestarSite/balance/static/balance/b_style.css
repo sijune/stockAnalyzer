@@ -1,0 +1,13 @@
+table td, table th {
+    border: 1px solid #ddd;
+    padding: 8px;
+
+}
+
+table th {
+    padding-top: 12px;
+    padding-bottom: 12px;
+    background-color: #4D92AA;
+    text-align: center;
+    color: white;
+}

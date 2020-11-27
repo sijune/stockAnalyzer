@@ -2,3 +2,4 @@ myPackage/Investar/passwdDB.py
 prepareMyPackage/passwdDB.py
 myPackage/passwdDB.py
 myvenv
+slackBot/slackBot.py
