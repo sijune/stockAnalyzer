@@ -137,19 +137,19 @@ class DBUpdater:
         self.update_daily_price(pages_to_fetch)
 
         # 매일 오후 5시 업데이트
-        tmnow = datetime.now()
-        lastday = calendar.monthrange(tmnow.year, tmnow.month)[1]
-        if tmnow.month ==12 and tmnow.day == lastday: # 12월 31일인경우
-            tmnext = tmnow.replace(year=tmnow.year+1, month=1, day=1, hour=17, minute=0, second=0) # 다음날 설정
-        elif tmnow.day == lastday: # 그냥 매월 마지막일인 경우
-            tmnext = tmnow.replace( month=tmnow.month+1, day=1, hour=17, minute=0, second=0)
-        else:
-            tmnext = tmnow.replace(day=tmnow.day+1, hour=17, minute=0, second=0)
-        tmdiff = tmnext - tmnow
-        secs = tmdiff.seconds
-
-        t = Timer(secs, self.execute_daily) #secs마다 호출
-        print("Waiting for next update ({}) ... ".format(tmnext.strftime('%Y-%m-%d %H-%M')))
+        # tmnow = datetime.now()
+        # lastday = calendar.monthrange(tmnow.year, tmnow.month)[1]
+        # if tmnow.month ==12 and tmnow.day == lastday: # 12월 31일인경우
+        #     tmnext = tmnow.replace(year=tmnow.year+1, month=1, day=1, hour=17, minute=0, second=0) # 다음날 설정
+        # elif tmnow.day == lastday: # 그냥 매월 마지막일인 경우
+        #     tmnext = tmnow.replace( month=tmnow.month+1, day=1, hour=17, minute=0, second=0)
+        # else:
+        #     tmnext = tmnow.replace(day=tmnow.day+1, hour=17, minute=0, second=0)
+        # tmdiff = tmnext - tmnow
+        # secs = tmdiff.seconds
+        #
+        # t = Timer(secs, self.execute_daily) #secs마다 호출
+        # print("Waiting for next update ({}) ... ".format(tmnext.strftime('%Y-%m-%d %H-%M')))
 
         t.start()
 
